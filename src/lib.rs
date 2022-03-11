@@ -21,7 +21,6 @@
 //! 因此,可以看出，DenseVecMap依然会浪费掉48个usize（第一层中1-48的位置）。当你的组件数据并量不大时，你并没有比Vec更节省内存空间
 //! 比如，你的组件数据就是一个usize，你并没有节省内存，反而比Vec使用了更多的内存，而且相比Vec，性能也更低，此时，建议。
 //! 尽管如此，在存储的单个数据体积稍大时，DenseVecMap依然是一个十分值得考虑的数据结构。
-extern crate pi_map;
 
 use std::ops::{Index, IndexMut};
 use std::mem::replace;
