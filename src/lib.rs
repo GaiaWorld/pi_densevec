@@ -49,13 +49,7 @@ impl<T> Default for DenseVecMap<T> {
 }
 
 impl<T> DenseVecMap<T> {
-    /// 取到元素个数
-    #[inline]
-    fn len(&self) -> usize {
-        self.data.len()
-	}
-    
-    /// 构造函数
+	/// 构造函数
 	pub fn new() -> DenseVecMap<T> {
         DenseVecMap{
 			data_id: VecMap::new(),
@@ -71,6 +65,18 @@ impl<T> DenseVecMap<T> {
 	pub fn into_values(self) -> IntoIter<T> {
         self.data.into_iter()
     }
+
+	pub fn clear(&mut self) {
+		self.data_id.clear();
+		self.data.clear();
+		self.indexs.clear();
+	}
+
+    /// 取到元素个数
+    #[inline]
+    fn len(&self) -> usize {
+        self.data.len()
+	}
 
     /// 根据索引查询元素，如果不存在对应元素，返回None
     fn get(&self, id: usize) -> Option<&T> {
