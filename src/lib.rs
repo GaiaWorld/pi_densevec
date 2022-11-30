@@ -29,11 +29,21 @@ use pi_map::Map;
 use pi_map::vecmap::VecMap;
 
 /// 重定向映射表
-#[derive(Default, Debug)]
+#[derive(Debug)]
 pub struct DenseVecMap<T> {
     data_id: VecMap<usize>,
     data: Vec<T>,
     indexs: Vec<usize>,
+}
+
+impl<T> Default for DenseVecMap<T> {
+    fn default() -> Self {
+        Self { 
+			data_id: Default::default(), 
+			data: Default::default(), 
+			indexs: Default::default() 
+		}
+    }
 }
 
 impl<T> DenseVecMap<T> {
