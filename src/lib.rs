@@ -24,6 +24,8 @@
 
 use std::ops::{Index, IndexMut};
 use std::mem::replace;
+use std::slice::{Iter};
+use std::vec::IntoIter;
 
 use pi_map::Map;
 use pi_map::vecmap::VecMap;
@@ -54,12 +56,20 @@ impl<T> DenseVecMap<T> {
 	}
     
     /// 构造函数
-	fn new() -> DenseVecMap<T> {
+	pub fn new() -> DenseVecMap<T> {
         DenseVecMap{
 			data_id: VecMap::new(),
 			data: Vec::new(),
 			indexs: Vec::new(),
 		}
+    }
+
+	pub fn values(&self) -> Iter<'_, T> {
+        self.data.iter()
+    }
+
+	pub fn into_values(self) -> IntoIter<T> {
+        self.data.into_iter()
     }
 
     /// 根据索引查询元素，如果不存在对应元素，返回None
