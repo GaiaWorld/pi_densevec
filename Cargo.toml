@@ -1,6 +1,6 @@
 [package]
 name = "pi_densevec"
-version = "0.1.2"
+version = "0.2.0"
 authors = ["suncy <530739162@qq.com>"]
 edition = "2021"
 description = "重定向映射表，一个使用usize作为key的映射表"
@@ -9,4 +9,4 @@ license = "MIT OR Apache-2.0"
 keywords = ["pi", "dense", "vec"]
 
 [dependencies]
-pi_map = "0.1"
+pi_map = "0.2"
